@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      Customer Record:
+      <div class="float-end">
+        <a href="{% url 'update' customer_record.id %}" class="btn btn-secondary">Update</a>
+        <a href="{% url 'delete' customer_record.id %}" class="btn btn-danger">Delete</a>
+      </div>
+      
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ customer_record.first_name }}
+        {{ customer_record.last_name }}
+      </h5>
+      <p class="card-text">
+        {{ customer_record.city }}<br/>
+        {{ customer_record.address_line}}<br/>
+        {{ customer_record.county }}<br/>
+      </p>
+      <a href="#" class="btn btn-primary">Follow</a>
+    </div>
+  </div>
+
+  <br/>
+  <a href="{% url 'home' %}" class="btn btn-secondary float-end">Back</a>
+
+{% endblock content %}
